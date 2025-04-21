@@ -16,6 +16,7 @@ export class AppComponent {
   shakeState = false;
   bounceState = false;
   bouble = false;
+  rotateState = false;
 
   constructor() {}
 
@@ -27,6 +28,9 @@ export class AppComponent {
     if (event.triggerName === 'shake') {
       this.bounceState = !this.bounceState; // Start bounce animation after shake ends
     }
+  }
+  rotate() {
+    this.rotateState = true;
   }
 
 }

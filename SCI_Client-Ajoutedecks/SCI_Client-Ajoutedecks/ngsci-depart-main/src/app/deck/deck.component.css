@@ -1,0 +1,376 @@
+button {
+  margin: 50px 0 50px 20px;
+  /* Ajout d'une marge à gauche de 20px */
+  padding: 25px 35px;
+  background-color: #f11cf167;
+  /* Couleur primaire */
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #1565c0;
+  /* Couleur au survol */
+}
+
+
+.card-container {
+  position: relative;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 5px;
+  right: 26px;
+  z-index: 10;
+}
+
+.delete-card-btn {
+  background: #a80ea8c0;
+  border-radius: 0;
+  /* Supprime les coins arrondis pour un bouton carré */
+  width: 40px;
+  height: 40px;
+  display: flex;
+  /* Utilise flexbox pour centrer l'icône */
+  align-items: center;
+  /* Centre verticalement l'icône */
+  justify-content: center;
+  /* Centre horizontalement l'icône */
+  padding: 0;
+  /* Supprime tout espace interne */
+  border: none;
+  /* Supprime les bordures par défaut */
+}
+
+/* Styles pour le formulaire */
+.cards-to-add-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Fond semi-transparent */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.cards-to-add-container {
+  background: #201f1f91;
+  border: #ffffff solid 1px;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 90%;
+  width: 800px;
+  max-height: 80%;
+  overflow-y: auto;
+  /* Active le défilement vertical */
+  scrollbar-width: none;
+  /* Masque la barre de défilement dans Firefox */
+  -ms-overflow-style: none;
+  /* Masque la barre de défilement dans Internet Explorer */
+}
+
+/* Masque la barre de défilement dans Chrome, Edge et Safari */
+.cards-to-add-container::-webkit-scrollbar {
+  display: none;
+}
+
+.cards-to-add-container .close-button {
+  display: block;
+  /* Permet de centrer le bouton */
+  margin: 20px auto;
+  /* Centre horizontalement et ajoute un espacement vertical */
+  padding: 15px 30px;
+  /* Augmente la taille du bouton */
+  font-size: 18px;
+  /* Augmente la taille du texte */
+  font-weight: bold;
+  /* Rend le texte plus visible */
+  color: #ffffff;
+  /* Couleur du texte */
+  background-color: #ff4d4d;
+  /* Couleur de fond rouge */
+  border: none;
+  /* Supprime les bordures */
+  border-radius: 8px;
+  /* Ajoute des coins arrondis */
+  cursor: pointer;
+  /* Change le curseur au survol */
+  transition: background-color 0.3s ease;
+  /* Ajoute une transition pour l'effet au survol */
+}
+
+.close-button {
+  display: block;
+  margin: 20px auto;
+  /* Centre horizontalement et ajoute un espacement vertical */
+  padding: 15px 30px;
+  /* Augmente la taille du bouton */
+  font-size: 18px;
+  /* Augmente la taille du texte */
+  font-weight: bold;
+  /* Rend le texte plus visible */
+  color: #ffffff;
+  /* Couleur du texte */
+  background-color: #ff4d4d;
+  /* Couleur de fond rouge */
+  border: none;
+  /* Supprime les bordures */
+  border-radius: 8px;
+  /* Ajoute des coins arrondis */
+  cursor: pointer;
+  /* Change le curseur au survol */
+  transition: background-color 0.3s ease;
+  /* Ajoute une transition pour l'effet au survol */
+}
+
+.close-button:hover {
+  background-color: #e60000;
+  /* Change la couleur au survol */
+}
+
+
+/* Titre du formulaire */
+.cards-to-add-container h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+/* Conteneur des cartes */
+.cards-to-add-container .row {
+  display: flex;
+  flex-wrap: wrap;
+  /* Permet de passer à la ligne suivante si nécessaire */
+  gap: 15px;
+  /* Espacement entre les cartes */
+  justify-content: center;
+  /* Centrer les cartes horizontalement */
+}
+
+.cards-to-add-container .col-md-2 {
+  flex: 0 0 calc(33.33% - 15px);
+  /* Chaque carte occupe 1/3 de la largeur moins l'espacement */
+  box-sizing: border-box;
+  /* Inclure les marges et paddings dans la largeur */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #72108b60;
+  /* Fond clair */
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Légère ombre */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Style des boutons */
+.cards-to-add-container button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.cards-to-add-container button:hover {
+  background-color: #0056b3;
+  /* Couleur au survol */
+  color: #ffffff;
+}
+
+/* Bouton "Fermer" */
+.cards-to-add-container button[color="warn"] {
+  background-color: #f44336;
+  /* Rouge pour le bouton "Fermer" */
+  color: white;
+}
+
+.cards-to-add-container button[color="warn"]:hover {
+  background-color: #d32f2f;
+  /* Rouge plus foncé au survol */
+}
+
+/* Style des cartes */
+
+
+.cards-to-add-container .col-md-2:hover {
+  transform: scale(1.05);
+  /* Zoom au survol */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* Ombre plus marquée */
+}
+
+
+.addcard {
+  margin: 50px 0 50px 20px;
+  align-items: center;
+  display: flex;
+  /* Utiliser Flexbox */
+  justify-content: center;
+  /* Centrer horizontalement */
+  width: fit-content;
+  padding: 25px 35px;
+  background-color: #4b444b3f;
+  /* Couleur primaire */
+  color: white;
+  border: 1px solid #ffffff;
+  border-radius: 20px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  height: fit-content;
+}
+
+h2 {
+  margin: 15px 0 15px 20px;
+  /* Ajout d'une marge à gauche de 20px */
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-size: 28px;
+}
+
+.btn {
+  display: flex;
+  /* Utiliser flexbox pour aligner le contenu */
+  align-items: center;
+  /* Centrer verticalement */
+  justify-content: center;
+  /* Centrer horizontalement */
+  gap: 8px;
+  /* Espacement entre l'icône et le texte */
+  font-size: 16px;
+  /* Taille du texte */
+  padding: 8px 16px;
+  /* Espacement interne */
+  border-radius: 4px;
+  /* Coins arrondis */
+}
+
+.btn mat-icon {
+  font-size: 24px;
+  /* Taille de l'icône */
+  line-height: 1;
+  /* Assurer un bon alignement vertical */
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  /* Aligne verticalement le titre et l'élément courant */
+  gap: 20px;
+  /* Espacement entre le titre et l'élément courant */
+  margin-bottom: 20px;
+  /* Espacement en bas du conteneur */
+}
+
+.row-container {
+  display: flex;
+  gap: 10px;
+  /* Espacement entre les boutons */
+  align-items: center;
+  /* Aligne les boutons verticalement au centre */
+}
+
+.row-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contain {
+  padding: 0px;
+  border: 1px solid #9e139e;
+  border-radius: 4px;
+  margin: 10px 40px 10px 20px;
+  /* Ajout d'une marge à gauche de 20px */
+  background-color: #1312126b;
+  margin-bottom: 50px
+}
+
+.element {
+  margin: 50px;
+  width: 1800px;
+}
+
+p {
+  color: #ffffff;
+  font-style: italic;
+  margin-right: 20px;
+  /* Ajout d'une marge à gauche de 20px */
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  /* Espace entre les cartes */
+}
+
+.card-item {
+  margin-right: 20px;
+  flex: 1 1 calc(33.333% - 16px);
+  /* 3 cartes par ligne */
+  box-sizing: border-box;
+  margin-bottom: 25px;
+  /* Ajustez la valeur selon vos besoins */
+}
+
+.courant {
+  background-color: #0f0e0f21;
+  padding: 15px;
+  width: fit-content;
+  /* La largeur s'adapte au contenu */
+  color: white;
+  border: 1px solid #9e139e;
+  border-radius: 20px;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.card {
+  margin-bottom: 50px;
+}
+
+.form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.form-container {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  width: 350px;
+  text-align: center;
+}
+
+.form-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}

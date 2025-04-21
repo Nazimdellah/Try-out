@@ -1,0 +1,24 @@
+@if (matchService.match == null) {
+  <mat-toolbar style="display: flex;">
+    <mat-icon style="margin-right: 8px" routerLink="/home">class</mat-icon>
+    <a routerLink="/home"><span>Super Cartes Infinies</span></a>    
+    @if (isLogged()) {  
+      <button mat-button routerLink='/mes-cartes'>Mes cartes</button>
+      <button mat-button routerLink="/magasin">Magasin</button>
+      <button mat-button (click)="joindre()">Joindre une partie</button>
+      <button mat-button routerLink="/deck">Mes Decks</button>
+
+    
+      <span style="flex: 1 1 auto;"></span>
+      <mat-chip style="margin-right: 20px;">
+        {{ getUsername() }}
+      </mat-chip>
+      <!--
+      <button mat-raised-button color="warn" (click)="test()">PRIVATE DATA</button>
+      -->
+      <button mat-raised-button color="warn" (click)="logout()">Se déconnecter</button>
+    }
+  </mat-toolbar>
+}
+<app-searching-match class="overlay" *ngIf="hub.enRecherche == true" (closeOverlay)="hub.enRecherche = false"></app-searching-match>
+<router-outlet></router-outlet>

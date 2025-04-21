@@ -1,0 +1,26 @@
+<div class="order-by-container">
+    <span>Trier :</span>
+    <form>
+      <mat-form-field>
+        <mat-label>Champ</mat-label>
+        <mat-select (selectionChange)="trier()" [(value)]="selectedValue" name="selectedValue">
+          <mat-option [value]="0">Attaque</mat-option>
+          <mat-option [value]="1">Points de vie</mat-option>
+          <mat-option [value]="2">Coût en Mana</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Ordre</mat-label>
+        <mat-select (selectionChange)="trier()" [(value)]="selectedOrdre" name="selectedOrdre">
+          <mat-option [value]="0">Croissant</mat-option>
+          <mat-option [value]="1">Décroissant</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+</div>
+
+<div class="cardContainer"> 
+      
+  <app-card *ngFor="let card of cardList" [card]="card"></app-card>
+</div>
+

@@ -1,0 +1,12 @@
+div {
+    height: calc(100vh - var(--mat-toolbar-standard-height));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}

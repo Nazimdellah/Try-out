@@ -1,0 +1,25 @@
+<mat-card class="login-card">
+  <form [formGroup]="form">
+    <mat-error *ngIf="serverError">{{ serverError }}</mat-error>
+    
+    <mat-form-field>
+      <label>Email</label>
+      <input matInput placeholder="Entrez votre email" formControlName="LoginEmail" type="email">
+      <mat-error *ngIf="form.get('LoginEmail')?.hasError('required')">Cettre réponse est <strong>requise</strong></mat-error>
+      <mat-error *ngIf="form.get('LoginEmail')?.hasError('email')">Format d'email invalide</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <label>Mot de passe</label>
+      <input matInput placeholder="Entrez votre mot de passe" formControlName="LoginPassword" type="password">
+      <mat-error *ngIf="form.get('LoginPassword')?.hasError('required')">Cettre réponse est <strong>requise</strong></mat-error>
+      <mat-error *ngIf="form.get('LoginPassword')?.hasError('minlength')">Le mot de passe doit contenir au moins 8 caractères</mat-error>
+    </mat-form-field>
+    <button (click)="login()" color="primary" class="btn">
+      Se connecter
+    </button>
+    <button (click)="goToRegister()" color="secondary" class="btnRegister">
+      Créer un compte
+    </button>
+  </form>
+</mat-card>

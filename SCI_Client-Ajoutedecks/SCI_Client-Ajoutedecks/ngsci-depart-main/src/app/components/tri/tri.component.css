@@ -1,0 +1,14 @@
+.order-by-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cardContainer{
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+    justify-items: center;
+    grid-template-columns: repeat(4, 1fr);
+}

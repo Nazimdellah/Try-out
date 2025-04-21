@@ -28,14 +28,5 @@ export class AppComponent {
       this.bounceState = !this.bounceState; // Start bounce animation after shake ends
     }
   }
-  boucle() {
-    this.bouble = !this.bouble;
-    setTimeout(() => {
-      animations: [
-        trigger('shake', [transition('* => *', useAnimation(shakeX, { params: { timing: 0, delay: 0 } }))]),]
 
-
-    }
-    , 2000);
-  }
 }

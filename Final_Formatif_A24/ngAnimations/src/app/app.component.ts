@@ -7,19 +7,35 @@ import { bounce, shake, shakeX, tada } from 'ng-animate';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   animations: [
-    trigger('shake', [transition('* => *', useAnimation(shakeX, { params: { timing: 2, delay: 0} }))]),
+    trigger('shake', [transition('* => *', useAnimation(shakeX, { params: { timing: 2, delay: 0 } }))]),
     trigger('bounce', [transition('* => *', useAnimation(bounce, { params: { timing: 2, delay: 0 } }))]),
   ],
-
 })
 export class AppComponent {
   title = 'ngAnimations';
   shakeState = false;
+  bounceState = false;
+  bouble = false;
 
+  constructor() {}
 
-  constructor() {
-  }
   triggerShake() {
-    this.shakeState = !this.shakeState; // Alterne l'état pour relancer l'animation
+    this.shakeState = !this.shakeState; // Toggle shake state to trigger animation
+  }
+
+  onShakeDone(event: any) {
+    if (event.triggerName === 'shake') {
+      this.bounceState = !this.bounceState; // Start bounce animation after shake ends
+    }
+  }
+  boucle() {
+    this.bouble = !this.bouble;
+    setTimeout(() => {
+      animations: [
+        trigger('shake', [transition('* => *', useAnimation(shakeX, { params: { timing: 0, delay: 0 } }))]),]
+
+
+    }
+    , 2000);
   }
 }

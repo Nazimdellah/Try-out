@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Linq;
 using signalr.backend.Data;
 using signalr.backend.Models;
 
@@ -39,8 +40,11 @@ namespace signalr.backend.Hubs
         public async override Task OnConnectedAsync()
         {
             UserHandler.UserConnections.Add(CurentUser.Email!, Context.UserIdentifier);
-            
+
             // TODO: Envoyer des message aux clients pour les mettre à jour
+            await Groups.AddToGroupAsync(Context.ConnectionId, "UserConnected");
+            await Clients.Group("UserConnected").SendAsync(CurentUser.Email!+"is Connected");
+
         }
 
         public async override Task OnDisconnectedAsync(Exception? exception)
